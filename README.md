@@ -6,6 +6,8 @@ The repo is made available for kicks:  honestly it's just
 a personal setup in GH so I don't have to worry about copying it around between
 my multiple machines.
 
+![Screenshot](screenshot.png)
+
 The goal here is for it to be practical without being too fancy. I don't want:
 * Extremely long load times
 * A ton of dependencies
