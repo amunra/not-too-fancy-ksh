@@ -187,6 +187,11 @@ prompt_not_too_fancy_setup() {
     prompt_git_branch
     RPROMPT='$(prompt_git_info) $(git_prompt_status)'
     PROMPT=$'%F{#f0a5c7}%D{%H:%M:%S}%f %F{white}$(shorten_path) %(?.%B%F{blue}❯%f%b.%B%F{red}❯%f%b) '
+
+    # Add the hostname if logged in via SSH
+    if [[ -n "$SSH_CONNECTION" ]]; then
+        PROMPT=$'%F{#8cff80}%m%f '$PROMPT  # %m shows the hostname
+    fi
 }
 
 prompt_not_too_fancy_setup
