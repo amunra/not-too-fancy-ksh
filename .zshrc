@@ -11,13 +11,18 @@ export VISUAL="hx"
 
 autoload -U compinit
 
-if [[ -d /opt/homebrew ]]; then
-  # MacOS
-  fpath+=~/.rustup/toolchains/nightly-aarch64-apple-darwin/share/zsh/site-functions
-else
-  # Ubuntu
-  fpath+=~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/share/zsh/site-functions
-fi
+# Add `cargo` auto-complete
+for rustup_path in \
+    ~/.rustup/toolchains/nightly-aarch64-apple-darwin/share/zsh/site-functions \
+    ~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/share/zsh/site-functions \
+    ~/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/share/zsh/site-functions \
+    ~/.rustup/toolchains/nightly-x86_64-apple-darwin/share/zsh/site-functions
+do
+    if [[ -d "$rustup_path" ]]; then
+        fpath+=$rustup_path
+        break
+    fi
+done
 
 fpath+=~/.zsh/zsh-completions/src
 
