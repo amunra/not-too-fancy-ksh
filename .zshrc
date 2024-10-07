@@ -11,6 +11,16 @@ export VISUAL="hx"
 
 autoload -U compinit
 
+if [[ -d /opt/homebrew ]]; then
+  # MacOS
+  fpath+=~/.rustup/toolchains/nightly-aarch64-apple-darwin/share/zsh/site-functions
+else
+  # Ubuntu
+  fpath+=~/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/share/zsh/site-functions
+fi
+
+fpath+=~/.zsh/zsh-completions/src
+
 if [[ -z "$ZSH_COMPDUMP" ]]; then
   ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump"
 fi

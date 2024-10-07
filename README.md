@@ -30,6 +30,7 @@ Kitty, Alacritty, or WezTerm.
 # Setup
 
 * Clone this repo somewhere
+* `git submodule update --init --recursive`
 * `ln -s path/to/repo ~/.zsh`
 * Alias `~.zsh/.zshrc` to `~/.zshrc`
 * Add `~/.zshrc.before` and/or `~/.zshrc.after` to run extra setup steps before or after the main setup
