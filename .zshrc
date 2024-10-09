@@ -9,6 +9,7 @@ fi
 export EDITOR="hx"
 export VISUAL="hx"
 
+# setopt menu_complete
 autoload -U compinit
 
 # Add `cargo` auto-complete
@@ -67,6 +68,12 @@ export PATH="~/bin:$PATH"
 
 setopt interactivecomments
 
+zstyle ':completion:*' menu select
+zstyle ':completion:*' completer _complete _files
+zstyle ':completion:*' insert-unambiguous true
+zstyle ':completion:*' menu select=1 interactive
+# zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+
 # Load local settings, beyond what is managed by the common `.zshrc`
 # synced to GitHub
 if [[ -f ~/.zshrc.after ]]; then
@@ -74,3 +81,4 @@ if [[ -f ~/.zshrc.after ]]; then
 fi
 
 # zprof
+
